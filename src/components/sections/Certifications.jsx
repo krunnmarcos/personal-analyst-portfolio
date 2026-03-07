@@ -60,35 +60,55 @@ export default function Certifications() {
         </motion.div>
       </div>
 
-      {/* Marquee — scroll infinito para a esquerda */}
+      {/* Marquee — duas linhas com direções opostas */}
       <div className="relative">
         {/* Fade edges */}
         <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-[var(--bg-primary)] to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-[var(--bg-primary)] to-transparent z-10 pointer-events-none" />
 
-        {/* Inline style garante que a animação nunca é purgeada/sobrescrita */}
         <style>{`
           @keyframes scroll-left {
             0%   { transform: translateX(0); }
             100% { transform: translateX(-50%); }
           }
+          @keyframes scroll-right {
+            0%   { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+          }
           .marquee-track {
             display: flex;
             width: max-content;
             gap: 1rem;
-            padding: 0.5rem 0;
             animation: scroll-left 35s linear infinite;
           }
-          .marquee-track:hover {
+          .marquee-track-reverse {
+            display: flex;
+            width: max-content;
+            gap: 1rem;
+            animation: scroll-right 35s linear infinite;
+          }
+          .marquee-track:hover,
+          .marquee-track-reverse:hover {
             animation-play-state: paused;
           }
         `}</style>
 
-        <div className="marquee-track">
-          {/* Renderiza 2× para loop contínuo sem corte */}
-          {[...certifications, ...certifications].map((cert, i) => (
-            <CertCard key={i} cert={cert} />
-          ))}
+        {/* Linha 1 — para a esquerda */}
+        <div className="py-2">
+          <div className="marquee-track">
+            {[...certifications, ...certifications].map((cert, i) => (
+              <CertCard key={`left-${i}`} cert={cert} />
+            ))}
+          </div>
+        </div>
+
+        {/* Linha 2 — para a direita */}
+        <div className="py-2">
+          <div className="marquee-track-reverse">
+            {[...certifications, ...certifications].map((cert, i) => (
+              <CertCard key={`right-${i}`} cert={cert} />
+            ))}
+          </div>
         </div>
       </div>
     </section>
