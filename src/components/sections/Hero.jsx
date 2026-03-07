@@ -118,12 +118,8 @@ export default function Hero() {
                   shadow-[var(--shadow-md)]
                 "
               >
-                {/* 
-                  Substitua o src abaixo pelo caminho real da foto.
-                  Exemplo: src="/foto-marcos.jpg" 
-                */}
                 <img
-                  src="https://placehold.co/320x320/EAEAE7/555555?text=MI"
+                  src="/foto-marcos.jpg"
                   alt="Foto de Marcos Irenos, analista de dados e estudante de engenharia de software"
                   className="w-full h-full object-cover"
                 />
