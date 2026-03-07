@@ -1,0 +1,54 @@
+@import "tailwindcss" theme(static);
+@config "../../tailwind.config.js";
+
+/* ===== CSS Custom Properties ===== */
+:root {
+  --bg-primary:     #F2F2F0;
+  --bg-secondary:   #EAEAE7;
+  --bg-glass:       rgba(242, 242, 240, 0.72);
+  --text-primary:   #1A1A1A;
+  --text-secondary: #555555;
+  --text-muted:     #999999;
+  --accent:         #5B4AF0;
+  --accent-soft:    rgba(91, 74, 240, 0.10);
+  --border:         rgba(0, 0, 0, 0.07);
+  --shadow-sm:      0 2px 12px rgba(0,0,0,0.05);
+  --shadow-md:      0 8px 32px rgba(0,0,0,0.08);
+}
+
+/* ===== Base Styles ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== Selection ===== */
+::selection {
+  background-color: var(--accent-soft);
+  color: var(--accent);
+}
+
+/* ===== Scrollbar (subtle) ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
