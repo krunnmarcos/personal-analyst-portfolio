@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import { useLang } from '../../i18n/LanguageContext'
 
 const itemVariants = {
   hidden: { opacity: 0, y: 28 },
@@ -24,6 +25,7 @@ const containerVariants = {
 }
 
 export default function About() {
+  const { t } = useLang()
   return (
     <section id="sobre" className="py-24 md:py-32">
       <div className="max-w-3xl mx-auto px-6">
@@ -34,36 +36,27 @@ export default function About() {
           viewport={{ once: true, margin: '-80px' }}
           className="space-y-6"
         >
-          {/* Label */}
           <motion.p
             variants={itemVariants}
             className="text-sm font-medium tracking-widest uppercase text-[var(--accent)]"
           >
-            Sobre mim
+            {t('aboutMini.label')}
           </motion.p>
 
-          {/* Bio text */}
           <motion.p
             variants={itemVariants}
             className="font-display text-2xl sm:text-3xl lg:text-4xl leading-snug text-[var(--text-primary)]"
           >
-            Sou analista de dados no Grupo RIC, onde transformo números em
-            decisões. Trabalho com Power BI, Python e SQL para construir
-            pipelines e dashboards que fazem a diferença na inteligência
-            financeira da empresa.
+            {t('aboutMini.p1')}
           </motion.p>
 
           <motion.p
             variants={itemVariants}
             className="text-base sm:text-lg leading-relaxed text-[var(--text-secondary)] max-w-2xl"
           >
-            Estudo Engenharia de Software na UNIBRASIL e acredito que a
-            intersecção entre dados e desenvolvimento é onde as melhores
-            soluções nascem. Fora do trabalho, exploro machine learning,
-            automações e formas de tornar dados mais acessíveis para todos.
+            {t('aboutMini.p2')}
           </motion.p>
 
-          {/* Link Ler mais */}
           <motion.div variants={itemVariants}>
             <Link
               to="/sobre"
@@ -73,7 +66,7 @@ export default function About() {
                 hover:gap-3 transition-all duration-300
               "
             >
-              Ler mais
+              {t('aboutMini.readMore')}
               <ArrowRight size={14} />
             </Link>
           </motion.div>

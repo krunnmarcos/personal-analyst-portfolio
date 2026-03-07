@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import { ArrowLeft } from 'lucide-react'
 import Layout from '../components/layout/Layout'
 import { getPostBySlug } from '../lib/posts'
+import { useLang } from '../i18n/LanguageContext'
 
 /* Barra de progresso de leitura */
 function ReadingProgress() {
@@ -31,7 +32,8 @@ function ReadingProgress() {
 
 export default function BlogPost() {
   const { slug } = useParams()
-  const post = getPostBySlug(slug)
+  const { lang, t } = useLang()
+  const post = getPostBySlug(slug, lang)
 
   if (!post) {
     return (
@@ -39,13 +41,13 @@ export default function BlogPost() {
         <main className="pt-28 pb-24 md:pt-32 md:pb-32">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <h1 className="font-display text-3xl text-[var(--text-primary)] mb-4">
-              Post não encontrado
+              {t('blogPost.notFound')}
             </h1>
             <Link
               to="/blog"
               className="text-sm font-medium text-[var(--accent)] hover:underline"
             >
-              ← Voltar ao blog
+              {t('blogPost.backToBlog')}
             </Link>
           </div>
         </main>
@@ -71,7 +73,7 @@ export default function BlogPost() {
               className="inline-flex items-center gap-1.5 text-sm text-[var(--text-muted)] hover:text-[var(--text-primary)] transition-colors duration-200 mb-10"
             >
               <ArrowLeft size={14} />
-              Voltar ao blog
+              {t('blogPost.backToBlog')}
             </Link>
           </motion.div>
 

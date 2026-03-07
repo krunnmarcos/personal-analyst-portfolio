@@ -1,37 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Clock, Tag } from 'lucide-react'
-
-/* ── Posts (linkados aos MDX) ── */
-const posts = [
-  {
-    slug: 'pipeline-etl-python-pandas',
-    title: 'Como construí um pipeline ETL com Python e Pandas',
-    date: '15 Jan 2026',
-    tag: 'Python',
-    readingTime: '5 min',
-    excerpt:
-      'Um guia prático sobre como automatizar a extração e transformação de dados usando Python para relatórios financeiros.',
-  },
-  {
-    slug: 'power-bi-dashboards-storytelling',
-    title: 'Power BI: dicas para dashboards que contam histórias',
-    date: '28 Dez 2025',
-    tag: 'Power BI',
-    readingTime: '4 min',
-    excerpt:
-      'Técnicas de storytelling visual que aprendi na prática para tornar dados financeiros acessíveis a qualquer stakeholder.',
-  },
-  {
-    slug: 'sql-window-functions',
-    title: 'SQL avançado: window functions no dia a dia',
-    date: '10 Nov 2025',
-    tag: 'SQL',
-    readingTime: '6 min',
-    excerpt:
-      'Como window functions mudaram minha forma de analisar séries temporais e rankings em bases Oracle e BigQuery.',
-  },
-]
+import { useLang } from '../../i18n/LanguageContext'
 
 /* ── Animações ── */
 const containerVariants = {
@@ -56,6 +26,9 @@ const tagColors = {
 }
 
 export default function BlogPreview() {
+  const { t } = useLang()
+  const posts = t('blogPreview.posts')
+
   return (
     <section id="blog" className="py-24 md:py-32">
       <div className="max-w-5xl mx-auto px-6">
@@ -69,17 +42,17 @@ export default function BlogPreview() {
         >
           <div>
             <p className="text-sm font-medium tracking-widest uppercase text-[var(--accent)] mb-3">
-              Blog
+              {t('blogPreview.label')}
             </p>
             <h2 className="font-display text-3xl sm:text-4xl text-[var(--text-primary)]">
-              Últimas publicações
+              {t('blogPreview.heading')}
             </h2>
           </div>
           <Link
             to="/blog"
             className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--accent)] hover:gap-3 transition-all duration-300"
           >
-            Ver todos os posts
+            {t('blogPreview.viewAll')}
             <ArrowRight size={14} />
           </Link>
         </motion.div>

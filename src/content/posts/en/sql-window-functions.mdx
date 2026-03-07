@@ -1,0 +1,36 @@
+export const meta = {
+  title: 'Advanced SQL: window functions in everyday work',
+  date: '2025-11-10',
+  tags: ['SQL', 'Data'],
+  excerpt: 'How window functions changed the way I analyze time series and rankings in Oracle and BigQuery databases.',
+  readingTime: '6 min',
+  lang: 'en',
+}
+
+# Advanced SQL: window functions in everyday work
+
+When I started working with SQL, I used GROUP BY for everything. It worked, but it was limited. Discovering **window functions** was a game changer.
+
+## What are Window Functions?
+
+They are functions that operate over a set of rows related to the current row — without collapsing the result like GROUP BY does.
+
+## Practical examples I use every week
+
+### Customer ranking by revenue
+
+I frequently need to rank customers within each region. With `ROW_NUMBER()` and `PARTITION BY`, this becomes trivial and performant.
+
+### Month-over-month variation
+
+Using `LAG()` I can compare the current month's value with the previous one in the same query, without needing complex self-joins.
+
+### Moving average
+
+`AVG() OVER (ORDER BY date ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)` gives me a 3-period moving average that smooths out oscillations in charts.
+
+## Golden tip
+
+Test your window functions with `SELECT *` first to visualize the result before aggregating. This avoids subtle bugs and helps understand what each partition is doing.
+
+Window functions turned 40-line queries into 10. Learn them — your SQL will never be the same.

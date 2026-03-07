@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Award } from 'lucide-react'
+import { useLang } from '../../i18n/LanguageContext'
 
 /* ── Dados das certificações ── */
 const certifications = [
@@ -40,6 +41,8 @@ function CertCard({ cert }) {
 }
 
 export default function Certifications() {
+  const { t } = useLang()
+
   return (
     <section className="py-24 md:py-32 overflow-hidden">
       <div className="max-w-5xl mx-auto px-6">
@@ -52,10 +55,10 @@ export default function Certifications() {
           className="mb-14"
         >
           <p className="text-sm font-medium tracking-widest uppercase text-[var(--accent)] mb-3">
-            Certificações
+            {t('certs.label')}
           </p>
           <h2 className="font-display text-3xl sm:text-4xl text-[var(--text-primary)]">
-            Aprendizado contínuo
+            {t('certs.heading')}
           </h2>
         </motion.div>
       </div>

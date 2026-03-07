@@ -7,6 +7,7 @@ import {
   MapPin,
   Calendar,
 } from 'lucide-react'
+import { useLang } from '../i18n/LanguageContext'
 
 const containerVariants = {
   hidden: {},

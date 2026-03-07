@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { Clock, Tag, ArrowRight } from 'lucide-react'
 import Layout from '../components/layout/Layout'
 import { getAllPosts } from '../lib/posts'
+import { useLang } from '../i18n/LanguageContext'
 
 const containerVariants = {
   hidden: {},
@@ -28,7 +29,8 @@ const tagColors = {
 }
 
 export default function Blog() {
-  const posts = getAllPosts()
+  const { lang, t } = useLang()
+  const posts = getAllPosts(lang)
   const [activeTag, setActiveTag] = useState(null)
 
   // Extrair todas as tags únicas
@@ -58,11 +60,10 @@ export default function Blog() {
               Blog
             </p>
             <h1 className="font-display text-4xl sm:text-5xl text-[var(--text-primary)] mb-4">
-              Publicações
+              {t('blogPage.heading')}
             </h1>
             <p className="text-base text-[var(--text-secondary)] max-w-lg">
-              Reflexões, tutoriais e aprendizados sobre dados, Python e
-              engenharia de software.
+              {t('blogPage.subtitle')}
             </p>
           </motion.div>
 
@@ -85,7 +86,7 @@ export default function Blog() {
                   }
                 `}
               >
-                Todos
+                {t('blogPage.all')}
               </button>
               {allTags.map((tag) => (
                 <button
@@ -173,7 +174,7 @@ export default function Blog() {
 
           {filtered.length === 0 && (
             <p className="text-center text-[var(--text-muted)] py-16">
-              Nenhum post encontrado com essa tag.
+              {t('blogPage.empty')}
             </p>
           )}
         </div>

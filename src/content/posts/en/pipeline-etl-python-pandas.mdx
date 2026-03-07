@@ -1,0 +1,32 @@
+export const meta = {
+  title: 'How I built an ETL pipeline with Python and Pandas',
+  date: '2026-01-15',
+  tags: ['Python', 'ETL'],
+  excerpt: 'A practical guide on automating data extraction and transformation using Python for financial reports.',
+  readingTime: '5 min',
+  lang: 'en',
+}
+
+# How I built an ETL pipeline with Python and Pandas
+
+In my daily work as a data analyst, one of the most recurring tasks is extracting data from different sources, transforming it, and loading it into a consolidated database. This post shows how I automated this process.
+
+## The problem
+
+Every week, I received spreadsheets from different departments in varying formats. The manual consolidation process took about **3 hours** and was prone to errors.
+
+## The solution
+
+I created a Python pipeline using Pandas and Openpyxl that:
+
+1. **Extracts** data from multiple Excel spreadsheets automatically
+2. **Transforms** columns, standardizes names, and handles null values
+3. **Loads** the result into a clean database ready for Power BI
+
+## Lessons learned
+
+- Start simple and iterate: my first script had 20 lines
+- Document every transformation — your "future self" will thank you
+- Testing with real data reveals edge cases that synthetic data hides
+
+The automation reduced the time from **3 hours to 4 minutes** and eliminated manual errors.

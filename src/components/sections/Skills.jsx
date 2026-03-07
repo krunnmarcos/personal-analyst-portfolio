@@ -8,6 +8,7 @@ import {
   Briefcase,
   Building2,
 } from 'lucide-react'
+import { useLang } from '../../i18n/LanguageContext'
 
 /* ── Animação ── */
 const containerVariants = {
@@ -26,58 +27,16 @@ const cardVariants = {
   },
 }
 
-/* ── Dados dos cards ── */
-const skills = [
-  {
-    title: 'Power BI & Dados',
-    description:
-      'Dashboards interativos, modelagem de dados e storytelling visual para decisões estratégicas.',
-    icon: BarChart3,
-    span: 'md:col-span-2', // card grande
-  },
-  {
-    title: 'Python & ETL',
-    description: 'Pipelines de dados automatizados e análises escaláveis.',
-    icon: Code2,
-    badges: ['Pandas', 'Openpyxl', 'Automação'],
-    span: 'md:col-span-2',
-  },
-  {
-    title: 'SQL',
-    description: 'Consultas complexas e otimizadas em bases corporativas.',
-    icon: Database,
-    badges: ['Oracle', 'GCP BigQuery'],
-    span: 'md:col-span-1',
-  },
-  {
-    title: 'Machine Learning',
-    description:
-      'Modelos supervisionados aplicados a problemas reais de negócio.',
-    icon: BrainCircuit,
-    span: 'md:col-span-1',
-    highlight: true, // card destaque
-  },
-  {
-    title: 'Power Platform & VBA',
-    description:
-      'Automações low-code e macros para produtividade corporativa.',
-    icon: Blocks,
-    span: 'md:col-span-2',
-  },
+/* ── Configuração estática (ícones, layout) ── */
+const skillConfig = [
+  { icon: BarChart3, span: 'md:col-span-2' },
+  { icon: Code2, span: 'md:col-span-2' },
+  { icon: Database, span: 'md:col-span-1' },
+  { icon: BrainCircuit, span: 'md:col-span-1', highlight: true },
+  { icon: Blocks, span: 'md:col-span-2' },
 ]
 
-const stats = [
-  {
-    value: '2+',
-    label: 'anos de experiência em dados',
-    icon: Briefcase,
-  },
-  {
-    value: '3',
-    label: 'empresas na trajetória',
-    icon: Building2,
-  },
-]
+const statIcons = [Briefcase, Building2]
 
 /* ── Componente de badge ── */
 function Badge({ children }) {
@@ -111,6 +70,21 @@ function MiniChart() {
 
 /* ── Componente principal ── */
 export default function Skills() {
+  const { t } = useLang()
+  const skillItems = t('skills.items')
+  const statItems = t('skills.stats')
+
+  // Merge config estático com texto traduzido
+  const skills = skillItems.map((item, i) => ({
+    ...item,
+    ...skillConfig[i],
+  }))
+
+  const stats = statItems.map((item, i) => ({
+    ...item,
+    icon: statIcons[i],
+  }))
+
   return (
     <section className="py-24 md:py-32">
       <div className="max-w-5xl mx-auto px-6">
@@ -123,10 +97,10 @@ export default function Skills() {
           className="mb-14"
         >
           <p className="text-sm font-medium tracking-widest uppercase text-[var(--accent)] mb-3">
-            Habilidades
+            {t('skills.label')}
           </p>
           <h2 className="font-display text-3xl sm:text-4xl text-[var(--text-primary)]">
-            O que eu faço de melhor
+            {t('skills.heading')}
           </h2>
         </motion.div>
 

@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { Mail, Linkedin, Github, ArrowUpRight } from 'lucide-react'
+import { useLang } from '../../i18n/LanguageContext'
 
 const socials = [
   {
@@ -34,6 +35,8 @@ const itemVariants = {
 }
 
 export default function Contact() {
+  const { t } = useLang()
+
   return (
     <section id="contato" className="py-24 md:py-32">
       <div className="max-w-3xl mx-auto px-6 text-center">
@@ -49,7 +52,7 @@ export default function Contact() {
             variants={itemVariants}
             className="text-sm font-medium tracking-widest uppercase text-[var(--accent)]"
           >
-            Contato
+            {t('contact.label')}
           </motion.p>
 
           {/* Frase impactante */}
@@ -57,8 +60,8 @@ export default function Contact() {
             variants={itemVariants}
             className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.1] text-[var(--text-primary)]"
           >
-            Vamos construir algo{' '}
-            <span className="text-[var(--accent)]">juntos</span>?
+            {t('contact.heading1')}{' '}
+            <span className="text-[var(--accent)]">{t('contact.headingHighlight')}</span>?
           </motion.h2>
 
           {/* Subtítulo */}
@@ -66,8 +69,7 @@ export default function Contact() {
             variants={itemVariants}
             className="text-base sm:text-lg text-[var(--text-secondary)] max-w-lg mx-auto"
           >
-            Estou sempre aberto a novas oportunidades, colaborações e conversas
-            sobre dados e tecnologia.
+            {t('contact.subtitle')}
           </motion.p>
 
           {/* CTA Button */}
@@ -85,7 +87,7 @@ export default function Contact() {
                 hover:shadow-[0_8px_32px_rgba(91,74,240,0.4)]
               "
             >
-              Entrar em contato
+              {t('contact.cta')}
               <ArrowUpRight size={18} />
             </a>
           </motion.div>

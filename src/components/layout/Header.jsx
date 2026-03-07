@@ -1,19 +1,21 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
-
-const navItems = [
-  { label: 'Inicio', href: '/' },
-  { label: 'Sobre', href: '/sobre' },
-  { label: 'Blog', href: '/blog' },
-  { label: 'Contato', href: '/contato' },
-]
+import { Menu, X, Globe } from 'lucide-react'
+import { useLang } from '../../i18n/LanguageContext'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const location = useLocation()
+  const { t, lang, toggleLang } = useLang()
+
+  const navItems = [
+    { label: t('nav.home'), href: '/' },
+    { label: t('nav.about'), href: '/sobre' },
+    { label: t('nav.blog'), href: '/blog' },
+    { label: t('nav.contact'), href: '/contato' },
+  ]
 
   // Detecta scroll para ajustar sombra do header
   useEffect(() => {
@@ -98,14 +100,24 @@ export default function Header() {
             })}
           </ul>
 
-          {/* Hamburger — Mobile */}
-          <button
-            className="md:hidden p-1 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label={isMenuOpen ? 'Fechar menu' : 'Abrir menu'}
-          >
-            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          {/* Language toggle + Hamburger — Mobile */}
+          <div className="flex items-center gap-2">
+            <button
+              onClick={toggleLang}
+              className="flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] bg-[var(--bg-secondary)]/60 border border-[var(--border)] transition-colors duration-200"
+              aria-label={lang === 'pt' ? 'Switch to English' : 'Mudar para Português'}
+            >
+              <Globe size={13} />
+              {lang === 'pt' ? 'EN' : 'PT'}
+            </button>
+            <button
+              className="md:hidden p-1 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label={isMenuOpen ? t('nav.closeMenu') : t('nav.openMenu')}
+            >
+              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </nav>
       </header>
 

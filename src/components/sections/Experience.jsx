@@ -1,43 +1,6 @@
 import { motion } from 'framer-motion'
 import { MapPin } from 'lucide-react'
-
-/* ── Dados das experiências ── */
-const experiences = [
-  {
-    company: 'Grupo RIC',
-    role: 'Analista de Dados Jr.',
-    period: 'Mar 2024 — Presente',
-    location: 'Curitiba, PR',
-    bullets: [
-      'Desenvolvimento de dashboards estratégicos em Power BI para a equipe de Inteligência Financeira',
-      'Construção de pipelines ETL com Python (Pandas, Openpyxl) para automação de relatórios',
-      'Consultas SQL complexas em Oracle e GCP BigQuery para extração e análise de dados',
-      'Automações com Power Platform e VBA para otimização de processos internos',
-    ],
-  },
-  {
-    company: 'SLB OneSubsea',
-    role: 'Estagiário — Qualidade de Fornecedores',
-    period: 'Ago 2023 — Mar 2024',
-    location: 'Curitiba, PR',
-    bullets: [
-      'Análise de dados de qualidade de fornecedores com Excel e ferramentas internas',
-      'Suporte na geração de relatórios e indicadores de performance (KPIs)',
-      'Colaboração com equipes multidisciplinares para melhoria contínua de processos',
-    ],
-  },
-  {
-    company: 'RM2 Intelligence Partner',
-    role: 'Estagiário — Dados',
-    period: 'Fev 2023 — Ago 2023',
-    location: 'Curitiba, PR',
-    bullets: [
-      'Primeiro contato profissional com análise de dados e business intelligence',
-      'Apoio na criação de dashboards e tratamento de bases de dados',
-      'Aprendizado prático em SQL, Excel avançado e ferramentas de BI',
-    ],
-  },
-]
+import { useLang } from '../../i18n/LanguageContext'
 
 /* ── Animações ── */
 const lineVariants = {
@@ -66,6 +29,9 @@ const dotVariants = {
 }
 
 export default function Experience() {
+  const { t } = useLang()
+  const experiences = t('experience.items')
+
   return (
     <section className="py-24 md:py-32">
       <div className="max-w-5xl mx-auto px-6">
@@ -78,10 +44,10 @@ export default function Experience() {
           className="mb-14"
         >
           <p className="text-sm font-medium tracking-widest uppercase text-[var(--accent)] mb-3">
-            Experiência
+            {t('experience.label')}
           </p>
           <h2 className="font-display text-3xl sm:text-4xl text-[var(--text-primary)]">
-            Minha trajetória profissional
+            {t('experience.heading')}
           </h2>
         </motion.div>
 

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
+import { useLang } from '../../i18n/LanguageContext'
 
 // Variants para animação staggered
 const containerVariants = {
@@ -39,6 +40,7 @@ const photoVariants = {
 }
 
 export default function Hero() {
+  const { t } = useLang()
   return (
     <section
       id="inicio"
@@ -58,7 +60,7 @@ export default function Hero() {
               variants={itemVariants}
               className="text-sm font-light tracking-wide text-[var(--text-muted)] mb-4"
             >
-              Bem-vindo (a)
+              {t('hero.greeting')}
             </motion.p>
 
             {/* Título principal */}
@@ -66,10 +68,10 @@ export default function Hero() {
               variants={itemVariants}
               className="font-display text-4xl sm:text-5xl lg:text-6xl leading-[1.1] tracking-tight text-[var(--text-primary)] mb-4"
             >
-              Analista de Dados{' '}
+              {t('hero.role')}{' '}
               <span className="text-[var(--accent)]">&amp;</span>
               <br />
-              Engenharia de Software
+              {t('hero.roleHighlight')}
             </motion.h1>
 
             {/* Nome */}
@@ -77,7 +79,7 @@ export default function Hero() {
               variants={itemVariants}
               className="text-lg sm:text-xl font-semibold text-[var(--text-secondary)] mb-8"
             >
-              Marcos Irenos
+              {t('hero.name')}
             </motion.p>
 
             {/* CTA Button */}
@@ -95,7 +97,7 @@ export default function Hero() {
                   hover:shadow-[0_6px_24px_rgba(91,74,240,0.4)]
                 "
               >
-                Contate-me
+                {t('hero.cta')}
                 <ArrowRight size={16} />
               </Link>
             </motion.div>
@@ -120,7 +122,7 @@ export default function Hero() {
               >
                 <img
                   src="/foto-marcos.jpg"
-                  alt="Foto de Marcos Irenos, analista de dados e estudante de engenharia de software"
+                  alt={t('hero.photoAlt')}
                   className="w-full h-full object-cover"
                 />
               </div>
