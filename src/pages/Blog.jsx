@@ -45,7 +45,7 @@ export default function Blog() {
 
   return (
     <Layout>
-      <main className="pt-28 pb-24 md:pt-32 md:pb-32">
+      <main id="main-content" className="pt-28 pb-24 md:pt-32 md:pb-32">
         <div className="max-w-5xl mx-auto px-6">
           {/* Header */}
           <motion.div

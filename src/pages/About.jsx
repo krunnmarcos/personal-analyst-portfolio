@@ -25,7 +25,7 @@ const itemVariants = {
 export default function AboutPage() {
   return (
     <Layout>
-      <main className="pt-28 pb-24 md:pt-32 md:pb-32">
+      <main id="main-content" className="pt-28 pb-24 md:pt-32 md:pb-32">
         <div className="max-w-3xl mx-auto px-6">
           <motion.div
             variants={containerVariants}

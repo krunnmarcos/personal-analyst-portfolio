@@ -10,7 +10,7 @@ import Contact from '../components/sections/Contact'
 export default function Home() {
   return (
     <Layout>
-      <main>
+      <main id="main-content">
         <Hero />
         <About />
         <Skills />

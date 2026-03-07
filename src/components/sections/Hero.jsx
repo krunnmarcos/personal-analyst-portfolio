@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
 // Variants para animação staggered
@@ -81,8 +82,8 @@ export default function Hero() {
 
             {/* CTA Button */}
             <motion.div variants={itemVariants}>
-              <a
-                href="#contato"
+              <Link
+                to="/contato"
                 className="
                   inline-flex items-center gap-2
                   px-7 py-3.5
@@ -96,7 +97,7 @@ export default function Hero() {
               >
                 Contate-me
                 <ArrowRight size={16} />
-              </a>
+              </Link>
             </motion.div>
           </motion.div>
 

@@ -58,7 +58,7 @@ export default function BlogPost() {
   return (
     <Layout>
       <ReadingProgress />
-      <main className="pt-28 pb-24 md:pt-32 md:pb-32">
+      <main id="main-content" className="pt-28 pb-24 md:pt-32 md:pb-32">
         <article className="max-w-3xl mx-auto px-6">
           {/* Voltar */}
           <motion.div

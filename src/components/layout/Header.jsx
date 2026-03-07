@@ -31,6 +31,11 @@ export default function Header() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
+  // Fecha menu ao mudar de rota
+  useEffect(() => {
+    setIsMenuOpen(false)
+  }, [location.pathname])
+
   // Bloqueia scroll do body quando menu mobile está aberto
   useEffect(() => {
     document.body.style.overflow = isMenuOpen ? 'hidden' : ''
