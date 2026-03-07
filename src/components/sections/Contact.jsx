@@ -111,8 +111,7 @@ export default function Contact() {
                     border border-[var(--border)]
                     text-[var(--text-secondary)]
                     hover:text-[var(--accent)] hover:border-[var(--accent)]/30
-                    hover:shadow-[var(--shadow-sm)]
-                    transition-all duration-200
+                    card-hover
                   "
                 >
                   <Icon size={18} />

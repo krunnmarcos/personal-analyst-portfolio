@@ -97,8 +97,7 @@ export default function BlogPreview() {
                 group flex flex-col rounded-2xl overflow-hidden
                 bg-[var(--bg-secondary)]
                 border border-[var(--border)]
-                hover:scale-[1.015] hover:shadow-[var(--shadow-md)]
-                transition-all duration-300 ease-out
+                card-hover
                 cursor-pointer
               "
             >

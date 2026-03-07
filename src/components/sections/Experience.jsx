@@ -138,8 +138,7 @@ export default function Experience() {
                     p-5 sm:p-6 rounded-2xl
                     bg-[var(--bg-secondary)]
                     border border-[var(--border)]
-                    hover:shadow-[var(--shadow-sm)]
-                    transition-shadow duration-300
+                    card-hover
                   "
                 >
                   {/* Header do card */}

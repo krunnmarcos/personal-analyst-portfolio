@@ -149,8 +149,7 @@ export default function Skills() {
                   group relative p-6 rounded-2xl
                   bg-[var(--bg-secondary)]
                   border border-[var(--border)]
-                  hover:scale-[1.015] hover:shadow-[var(--shadow-md)]
-                  transition-all duration-300 ease-out
+                  card-hover
                   ${skill.span}
                   ${skill.highlight ? 'ring-1 ring-[var(--accent)]/15' : ''}
                 `}
@@ -205,8 +204,7 @@ export default function Skills() {
                   group flex items-center gap-4 p-6 rounded-2xl
                   bg-[var(--bg-secondary)]
                   border border-[var(--border)]
-                  hover:scale-[1.015] hover:shadow-[var(--shadow-md)]
-                  transition-all duration-300 ease-out
+                  card-hover
                   md:col-span-2
                 "
               >
