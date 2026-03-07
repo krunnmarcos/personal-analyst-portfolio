@@ -11,6 +11,34 @@ const certifications = [
   { name: 'Soft Skills', platform: 'IBM' },
 ]
 
+/* ── Card de certificação ── */
+function CertCard({ cert }) {
+  return (
+    <div
+      className="
+        flex items-center gap-3
+        px-5 py-3.5
+        rounded-full
+        bg-[var(--bg-secondary)]
+        border border-[var(--border)]
+        shrink-0
+      "
+    >
+      <div className="flex items-center justify-center w-8 h-8 rounded-full bg-[var(--accent-soft)] text-[var(--accent)] shrink-0">
+        <Award size={15} />
+      </div>
+      <div className="whitespace-nowrap">
+        <p className="text-sm font-medium text-[var(--text-primary)] leading-tight">
+          {cert.name}
+        </p>
+        <p className="text-xs text-[var(--text-muted)]">
+          {cert.platform}
+        </p>
+      </div>
+    </div>
+  )
+}
+
 export default function Certifications() {
   return (
     <section className="py-24 md:py-32 overflow-hidden">
@@ -32,40 +60,34 @@ export default function Certifications() {
         </motion.div>
       </div>
 
-      {/* Marquee / Ticker — faixa de scroll infinito */}
+      {/* Marquee — scroll infinito para a esquerda */}
       <div className="relative">
         {/* Fade edges */}
         <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-r from-[var(--bg-primary)] to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-24 bg-gradient-to-l from-[var(--bg-primary)] to-transparent z-10 pointer-events-none" />
 
-        {/* Ticker row */}
-        <div className="flex animate-marquee w-max gap-4 py-2">
-          {/* Duplicamos o array para loop contínuo */}
+        {/* Inline style garante que a animação nunca é purgeada/sobrescrita */}
+        <style>{`
+          @keyframes scroll-left {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .marquee-track {
+            display: flex;
+            width: max-content;
+            gap: 1rem;
+            padding: 0.5rem 0;
+            animation: scroll-left 35s linear infinite;
+          }
+          .marquee-track:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
+
+        <div className="marquee-track">
+          {/* Renderiza 2× para loop contínuo sem corte */}
           {[...certifications, ...certifications].map((cert, i) => (
-            <div
-              key={`${cert.name}-${i}`}
-              className="
-                flex items-center gap-3
-                px-5 py-3.5
-                rounded-full
-                bg-[var(--bg-secondary)]
-                border border-[var(--border)]
-                shrink-0
-                card-hover
-              "
-            >
-              <div className="flex items-center justify-center w-8 h-8 rounded-full bg-[var(--accent-soft)] text-[var(--accent)] shrink-0">
-                <Award size={15} />
-              </div>
-              <div className="whitespace-nowrap">
-                <p className="text-sm font-medium text-[var(--text-primary)] leading-tight">
-                  {cert.name}
-                </p>
-                <p className="text-xs text-[var(--text-muted)]">
-                  {cert.platform}
-                </p>
-              </div>
-            </div>
+            <CertCard key={i} cert={cert} />
           ))}
         </div>
       </div>

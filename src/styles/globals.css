@@ -46,16 +46,11 @@ body {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-}
-
-/* ===== Marquee animation ===== */
-@keyframes marquee {
-  0%   { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  animation: marquee 30s linear infinite;
+  /* Preserva o marquee mesmo com reduced-motion */
+  .marquee-track {
+    animation-duration: 35s !important;
+    animation-iteration-count: infinite !important;
+  }
 }
 
 /* ===== Interactive cards — smooth hover ===== */
