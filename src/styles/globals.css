@@ -97,14 +97,18 @@ body::before {
 
 /* ===== Interactive cards — smooth hover ===== */
 .card-hover {
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              background-color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
 }
 
 .card-hover:hover {
-  transform: scale(1.02);
-  box-shadow: var(--shadow-md);
+  transform: scale(1.02) translateY(-2px);
+  box-shadow: 0 8px 32px rgba(91, 74, 240, 0.08), 0 2px 8px rgba(0,0,0,0.04);
+  border-color: rgba(91, 74, 240, 0.15);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 /* ===== Selection ===== */

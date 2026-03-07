@@ -112,7 +112,7 @@ export default function AboutPage() {
                 return (
                   <div
                     key={item.label}
-                    className="flex items-start gap-3 p-4 rounded-2xl bg-[var(--bg-secondary)] border border-[var(--border)]"
+                    className="flex items-start gap-3 p-4 rounded-2xl bg-[var(--bg-secondary)] border border-[var(--border)] card-hover"
                   >
                     <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-[var(--accent-soft)] text-[var(--accent)] shrink-0">
                       <Icon size={17} />

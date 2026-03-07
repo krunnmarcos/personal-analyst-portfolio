@@ -23,6 +23,7 @@ function CertCard({ cert }) {
         bg-[var(--bg-secondary)]
         border border-[var(--border)]
         shrink-0
+        card-hover
       "
     >
       <div className="flex items-center justify-center w-8 h-8 rounded-full bg-[var(--accent-soft)] text-[var(--accent)] shrink-0">
