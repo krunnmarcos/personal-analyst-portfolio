@@ -2,9 +2,10 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { ArrowRight, Clock, Tag } from 'lucide-react'
 
-/* ── Posts fictícios (placeholder) ── */
+/* ── Posts (linkados aos MDX) ── */
 const posts = [
   {
+    slug: 'pipeline-etl-python-pandas',
     title: 'Como construí um pipeline ETL com Python e Pandas',
     date: '15 Jan 2026',
     tag: 'Python',
@@ -13,6 +14,7 @@ const posts = [
       'Um guia prático sobre como automatizar a extração e transformação de dados usando Python para relatórios financeiros.',
   },
   {
+    slug: 'power-bi-dashboards-storytelling',
     title: 'Power BI: dicas para dashboards que contam histórias',
     date: '28 Dez 2025',
     tag: 'Power BI',
@@ -21,6 +23,7 @@ const posts = [
       'Técnicas de storytelling visual que aprendi na prática para tornar dados financeiros acessíveis a qualquer stakeholder.',
   },
   {
+    slug: 'sql-window-functions',
     title: 'SQL avançado: window functions no dia a dia',
     date: '10 Nov 2025',
     tag: 'SQL',
@@ -90,8 +93,8 @@ export default function BlogPreview() {
           className="grid grid-cols-1 md:grid-cols-3 gap-5"
         >
           {posts.map((post) => (
+            <Link key={post.slug} to={`/blog/${post.slug}`} className="block">
             <motion.article
-              key={post.title}
               variants={cardVariants}
               className="
                 group flex flex-col rounded-2xl overflow-hidden
@@ -99,6 +102,7 @@ export default function BlogPreview() {
                 border border-[var(--border)]
                 card-hover
                 cursor-pointer
+                h-full
               "
             >
               {/* Imagem placeholder */}
@@ -156,6 +160,7 @@ export default function BlogPreview() {
                 </p>
               </div>
             </motion.article>
+            </Link>
           ))}
         </motion.div>
       </div>
