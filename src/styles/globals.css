@@ -47,7 +47,8 @@ body {
     scroll-behavior: auto !important;
   }
   /* Preserva o marquee mesmo com reduced-motion */
-  .marquee-track {
+  .marquee-track,
+  .marquee-track-reverse {
     animation-duration: 35s !important;
     animation-iteration-count: infinite !important;
   }
