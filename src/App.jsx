@@ -45,6 +45,10 @@ function App() {
   return (
     <LanguageProvider>
       <Router>
+        {/* Accent blur blobs */}
+        <div className="bg-blur-blob bg-blur-blob--top" aria-hidden="true" />
+        <div className="bg-blur-blob bg-blur-blob--bottom" aria-hidden="true" />
+
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:px-4 focus:py-2 focus:rounded-lg focus:bg-[var(--accent)] focus:text-white focus:text-sm"
