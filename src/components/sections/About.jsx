@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 
 const itemVariants = {
@@ -64,8 +65,8 @@ export default function About() {
 
           {/* Link Ler mais */}
           <motion.div variants={itemVariants}>
-            <a
-              href="/sobre"
+            <Link
+              to="/sobre"
               className="
                 inline-flex items-center gap-1.5
                 text-sm font-medium text-[var(--accent)]
@@ -74,7 +75,7 @@ export default function About() {
             >
               Ler mais
               <ArrowRight size={14} />
-            </a>
+            </Link>
           </motion.div>
         </motion.div>
       </div>

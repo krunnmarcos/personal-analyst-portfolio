@@ -1,18 +1,19 @@
 import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
 const navItems = [
-  { label: 'Inicio', href: '#inicio' },
-  { label: 'Sobre', href: '#sobre' },
-  { label: 'Blog', href: '#blog' },
-  { label: 'Contato', href: '#contato' },
+  { label: 'Inicio', href: '/' },
+  { label: 'Sobre', href: '/sobre' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contato', href: '/contato' },
 ]
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState('inicio')
   const [scrolled, setScrolled] = useState(false)
+  const location = useLocation()
 
   // Detecta scroll para ajustar sombra do header
   useEffect(() => {
@@ -54,40 +55,42 @@ export default function Header() {
           }}
         >
           {/* Logo */}
-          <a
-            href="#inicio"
+          <Link
+            to="/"
             className="font-display text-xl tracking-tight select-none shrink-0"
           >
             D<span className="text-[var(--accent)]">/</span>A
-          </a>
+          </Link>
 
           {/* Nav Links — Desktop */}
           <ul className="hidden md:flex items-center gap-6 text-sm font-medium">
-            {navItems.map((item) => (
-              <li key={item.label}>
-                <a
-                  href={item.href}
-                  className={`
-                    relative py-1 transition-colors duration-200
-                    ${activeSection === item.href.slice(1)
-                      ? 'text-[var(--text-primary)]'
-                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
-                    }
-                  `}
-                  onClick={() => setActiveSection(item.href.slice(1))}
-                >
-                  {item.label}
-                  {/* Indicador ativo */}
-                  {activeSection === item.href.slice(1) && (
-                    <motion.span
-                      layoutId="activeNav"
-                      className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[var(--accent)]"
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-                    />
-                  )}
-                </a>
-              </li>
-            ))}
+            {navItems.map((item) => {
+              const isActive = location.pathname === item.href
+              return (
+                <li key={item.label}>
+                  <Link
+                    to={item.href}
+                    className={`
+                      relative py-1 transition-colors duration-200
+                      ${isActive
+                        ? 'text-[var(--text-primary)]'
+                        : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                      }
+                    `}
+                  >
+                    {item.label}
+                    {/* Indicador ativo */}
+                    {isActive && (
+                      <motion.span
+                        layoutId="activeNav"
+                        className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[var(--accent)]"
+                        transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
 
           {/* Hamburger — Mobile */}
@@ -130,16 +133,13 @@ export default function Header() {
                       ease: [0.22, 1, 0.36, 1],
                     }}
                   >
-                    <a
-                      href={item.href}
+                    <Link
+                      to={item.href}
                       className="font-display text-4xl text-[var(--text-primary)] hover:text-[var(--accent)] transition-colors duration-200"
-                      onClick={() => {
-                        setActiveSection(item.href.slice(1))
-                        setIsMenuOpen(false)
-                      }}
+                      onClick={() => setIsMenuOpen(false)}
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   </motion.li>
                 ))}
               </ul>

@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { ArrowRight, Clock, Tag } from 'lucide-react'
 
 /* ── Posts fictícios (placeholder) ── */
@@ -71,13 +72,13 @@ export default function BlogPreview() {
               Últimas publicações
             </h2>
           </div>
-          <a
-            href="/blog"
+          <Link
+            to="/blog"
             className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--accent)] hover:gap-3 transition-all duration-300"
           >
             Ver todos os posts
             <ArrowRight size={14} />
-          </a>
+          </Link>
         </motion.div>
 
         {/* Grid de cards */}
