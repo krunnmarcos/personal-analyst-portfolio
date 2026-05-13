@@ -1,0 +1,58 @@
+export const meta = {
+  title: 'Beleza Importa - Um Aprendizado como Analista Jr',
+  date: '2026-05-12',
+  tags: ['Power BI', 'Dados', 'Carreira'],
+  excerpt: 'Ninguém te conta isso na faculdade: dashboard feio não passa de sprint.',
+  readingTime: '6 min',
+}
+
+# Ninguém te conta isso na faculdade
+
+Você passou horas modelando os dados, o ETL está redondo, as métricas batem, o DAX funcionou na primeira tentativa (mentira, na décima). Aí você abre o Power BI, joga tudo na tela e entrega.
+
+E o gestor olha por 30 segundos e fala: "não entendi nada".
+
+Bem vindo ao clube. Passei por isso, e provavelmente você também vai passar ou já passou. A boa notícia é que tem solução. A má notícia é que a solução exige aceitar uma coisa que a faculdade de engenharia nunca ensina: **beleza importa**.
+
+## O erro clássico do analista jr
+
+Depois de tanto trabalhar extraindo e transformando dados, quando chegamos na visualização é fácil se empolgar. São tantos dados e tantas ideias que acabamos criando um bicho de sete cabeças. Mesmo que todas as visualizações sejam úteis, o usuário vai escolher uma ou duas como favoritas, e o resto só atrapalha, quando não quebra tudo.
+
+O problema é que a gente confunde complexidade com qualidade. Quanto mais visual, mais filtro, mais página, mais parece que você trabalhou muito. Mas não é assim que quem usa enxerga.
+
+## Como eu aprendi na prática
+
+Dentro da RIC, empresa onde trabalho atualmente, construí um dashboard de produtividade comercial baseado no CRM. A proposta era simples: gestores monitorando equipes de forma visual e diária. O que eu entreguei foi outra coisa: todos os níveis de visualização, páginas e subpáginas, filtros de todos os tipos, lógica de mercado complexa de difícil adaptação. É como matar uma formiga com um tanque de guerra.
+
+O resultado veio rápido: pouca utilização, painel frágil fácil de quebrar, e o principal, quem usa não entende nada. A primeira reação foi treinamento. Se o usuário não sabe usar, basta ensinar, né?
+
+Não.
+
+Nosso objetivo como analistas é fazer com que os painéis sejam utilizáveis até por um novo membro da equipe, sem dificuldades. Se você precisa de um treinamento de uma hora para o time conseguir usar o dashboard, você errou, e errou feio. E olha, eu errei feio.
+
+## O que fazer diferente
+
+Primeiro: **entenda os stakeholders de verdade**, antes de abrir o Power BI. Quem vai usar? Qual a faixa etária? Têm experiência com dashboards? Acessam pelo celular ou por uma TV na sala de reunião?
+
+Quando você conhece o usuário fica fácil pensar como ele. E se você já teve a oportunidade de desenvolver esses projetos, sabe muito bem que o usuário desafia as leis da física.
+
+Minha dica prática: pense em alguém de fora, que não trabalha com você. Essa pessoa, sem nenhum treinamento, conseguiria entrar no dashboard e extrair a informação que precisa em menos de um minuto? Se sim, ótimo. Se não, repense antes de entregar.
+
+## Checklist do que funciona na prática
+
+- **Menos filtro, mais botões:** O usuário não vê os filtros e não sabe usá-los. Evite colocar muitos e opte por botões e bookmarks, é mais clicável e mais intuitivo.
+- **Cores claras ajudam:** Eu sei que você gosta de dark mode, eu também gosto. Mas telas claras facilitam a leitura dos dados e tiram o aspecto "técnico demais" do painel para quem não é da área.
+- **Tela inicial/home:** Ao invés de jogar os dados na primeira tela, crie uma navegação por botões. O usuário não precisa ser bombardeado com informações toda vez que entra.
+- **Tenha uma cobaia:** Escolha alguém menos técnico para testar antes de publicar. Essa pessoa vai achar os problemas que você, por estar perto demais do projeto, nunca ia enxergar.
+- **Use AI se você é um péssimo designer:** Nem todo mundo tem o dom artístico, e tudo bem. Use uma AI para pegar referências de design intuitivo. Um prompt que funciona: peça que uma criança de 5 anos consiga navegar pelo painel.
+- **Labels, títulos e mais labels:** Não coloque "Total". Coloque "Total de Valor Líquido Investido em 2026". Parece óbvio até você apresentar numa TV de 32 polegadas para a equipe comercial e alguém perguntar "total de quê?".
+- **Evite tabelas:** Quando não tiver saída, use um botão de extração separado. Tabelas travam a leitura visual e o usuário sempre vai querer copiar para o Excel de qualquer forma.
+- **Dashboard rápido:** Seus painéis provavelmente serão usados menos de 5 minutos por vez. Foque em tornar a navegação tão intuitiva que o usuário entre, encontre o que precisa e saia. Quanto menos cliques, melhor.
+
+## Conclusão
+
+A parte técnica é o mínimo esperado. Ninguém vai te elogiar por um DAX bem escrito se o painel for inutilizável. Mas um dashboard que o gestor abre todo dia, que o time consegue usar sem pedir ajuda, esse é o tipo de entrega que te coloca no radar para o próximo projeto.
+
+Você não precisa virar designer. Precisa parar de construir para você e começar a construir para quem vai usar, lembrando-se sempre de que o usuário final é a peça mais importante.
+
+E acredite, essa diferença aparece rápido na carreira.

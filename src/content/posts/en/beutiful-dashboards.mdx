@@ -1,0 +1,58 @@
+export const meta = {
+  title: 'Beauty Matters - A Junior Analyst Learning',
+  date: '2026-05-12',
+  tags: ['Power BI', 'Data', 'Career'],
+  excerpt: "Nobody tells you this in college: an ugly dashboard won't survive a sprint.",
+  readingTime: '6 min',
+}
+
+# Nobody Tells You This in College
+
+You spent hours modeling the data, the ETL is clean, the metrics add up, the DAX worked on the first try (lies, the tenth). Then you open Power BI, throw everything on the screen and ship it.
+
+And your manager stares at it for 30 seconds and says: "I don't get it."
+
+Welcome to the club. I've been there, and you probably will be too, or already have. The good news is there's a fix. The bad news is the fix requires accepting something engineering school never taught you: **beauty matters**.
+
+## The Classic Junior Analyst Mistake
+
+After spending so much time extracting and transforming data, it's easy to get carried away when you finally reach the visualization stage. So much data, so many ideas, and suddenly you've built a seven-headed monster. Even if every single visual is useful, the user will pick one or two favorites and the rest just gets in the way, when it doesn't break everything.
+
+The problem is that we confuse complexity with quality. The more visuals, filters, and pages, the more it feels like you worked hard. But that's not how the person using it sees it.
+
+## How I Learned the Hard Way
+
+At RIC, the company I currently work for, I built a commercial productivity dashboard based on our CRM. The goal was simple: managers monitoring their teams visually, on a daily basis. What I delivered was something else entirely: every level of visualization, pages and subpages, filters of every kind, complex market logic that was hard to adapt. Like killing an ant with a tank.
+
+The result came fast: low adoption, a fragile dashboard that broke easily, and most importantly, nobody using it actually understood it. The first reaction was training. If the user doesn't know how to use it, just teach them, right?
+
+No.
+
+Our job as analysts is to build dashboards that even a brand new team member can use without help. If you need an hour-long training session just to get the team navigating the dashboard, you made a mistake, and a pretty big one. And look, I made that mistake.
+
+## What to Do Differently
+
+First: **actually understand your stakeholders**, before you even open Power BI. Who's using it? What's their age range? Do they have experience with dashboards? Are they accessing it on a laptop or a TV in the conference room?
+
+When you know the user, it's easy to think like them. And if you've had the chance to build these projects before, you already know that users will challenge the laws of physics.
+
+My practical tip: think of someone outside your team, someone who doesn't work with you. That person, with zero training, could they open the dashboard and find what they need in under a minute? If yes, great. If not, rethink before you ship.
+
+## What Actually Works: A Checklist
+
+- **Fewer filters, more buttons:** Users don't notice filters and don't know how to use them. Cut them down and go with buttons and bookmarks instead, they're more clickable and more intuitive.
+- **Light colors help:** I know you love dark mode, I do too. But light screens make data easier to read and remove the "too technical" feel for people outside the data world.
+- **Home screen:** Instead of dumping data on the first page, build a button-based navigation. Users don't need to be hit with information they didn't ask for every time they open the app.
+- **Get a guinea pig:** Find someone less technical to test it before you publish. That person will catch problems you'd never see because you're too close to the project.
+- **Use AI if you're a terrible designer:** Not everyone has an artistic eye, and that's fine. Use AI to find references for intuitive design. A prompt that works: ask for something a 5-year-old could navigate.
+- **Labels, titles, and more labels:** Don't write "Total". Write "Total Net Value Invested in 2026". Seems obvious until you're presenting on a 32-inch TV and someone asks "total of what?".
+- **Avoid tables:** When there's no way around it, use a separate export button. Tables break visual flow and users will want to copy it to Excel anyway.
+- **Fast dashboard:** Your dashboards will probably be used for less than 5 minutes at a time. Make navigation intuitive enough that users can get in, find what they need, and get out. The fewer clicks, the better.
+
+## Conclusion
+
+The technical side is the bare minimum. Nobody's going to praise you for clean DAX if the dashboard is unusable. But a dashboard your manager opens every day, that the team can use without asking for help, that's the kind of delivery that gets you noticed for the next project.
+
+You don't need to become a designer. You need to stop building for yourself and start building for whoever is actually going to use it, always keeping in mind that the end user is the most important piece of the puzzle.
+
+Trust me, that shift shows up fast in your career.
