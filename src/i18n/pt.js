@@ -19,8 +19,8 @@ export const pt = {
   hero: {
     greeting: 'Olá, eu sou',
     name: 'Marcos Irenos',
-    role: 'Analista de Dados &',
-    roleHighlight: 'Engenharia de Software',
+    role: 'Analista de Dados',
+    roleHighlight: 'Engenheiro de Software',
     description:
       'Transformo dados em decisões e código em soluções. Atualmente no Grupo RIC, construindo dashboards e pipelines que impactam a inteligência financeira.',
     cta: 'Contate-me',

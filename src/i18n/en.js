@@ -19,8 +19,8 @@ export const en = {
   hero: {
     greeting: "Hi, I'm",
     name: 'Marcos Irenos',
-    role: 'Data Analyst &',
-    roleHighlight: 'Software Engineering',
+    role: 'Data Analyst',
+    roleHighlight: 'Software Engineer',
     description:
       'I turn data into decisions and code into solutions. Currently at Grupo RIC, building dashboards and pipelines that power financial intelligence.',
     cta: 'Get in touch',
